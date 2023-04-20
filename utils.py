@@ -12,21 +12,25 @@ def filter_data(data):
     data = [x for x in data if 'state' in x and x['state'] == 'EXECUTED']
     return data
 
+
 def sorted_key(x):
     return x['date']
+
 
 def sort_data(data):
     data = sorted(data, key=sorted_key, reverse=True)
     return data[0:5]
 
-def format_cart(cart):
 
+def format_cart(cart):
     sender = cart.split()
     formated_cart = sender.pop(-1)
     cart_info = " ".join(sender)
     formated_cart = f"{cart_info} {formated_cart[:4]} {formated_cart[4:6]}** **** {formated_cart[-4:]}"
 
     return formated_cart
+
+
 def format_data(data):
     formatted_data = []
     for row in data:
