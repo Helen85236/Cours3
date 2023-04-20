@@ -1,0 +1,14 @@
+[tool.poetry]
+name = "cours3"
+version = "0.1.0"
+description = ""
+authors = ["Helen85236 <79532870251@yandex.ru>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
