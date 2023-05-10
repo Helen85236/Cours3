@@ -39,17 +39,21 @@ def format_data(data):
         if "from" in row:
             from_arrow = "->"
             sender = format_cart(row['from'])
-            dest = format_cart(row['to'])
-            tt = f"{row['operationAmount']['amount']} {row['operationAmount']['currency']['name']}"
         else:
             sender = "Открытие счета"
-            from_arrow = ""
-            tt = ""
-            dest = ""
+            from_arrow = ":"
+
+        sender_bill = row['to'].split()
+        bill = sender_bill.pop(-1)
+        bill_info = ' '.join(sender_bill)
+        bill = f'**{bill[-4:]}'
+        operation_sum = row['operationAmount']['amount']
+        operation_currency = row['operationAmount']['currency']['name']
 
         formatted_data.append(f"""
 {date} {description}
-{sender} {from_arrow} {tt} {dest}
+{sender} {from_arrow}  {bill_info} {bill}
+{operation_sum} {operation_currency}
           """)
 
     return formatted_data
